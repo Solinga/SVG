@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>SVG基础形状</title>
+	</head>
+	<body>
+<!-- XML声明 
+		standalone规定此SVG文件是否是“独立的”，或者含有外部文件的引用
+		standalone="no"意味着SVG文档会引用一个外部文件-->
+		<?xml version="1.0" standalone="no"?>
+<!--<svg></svg>标签的属性
+				version 版本
+				xmlns   定义SVG命名空间
+				viewport:物理窗口,视窗(就是用x,y,width,height四个属性在页面上固定的矩形区域)
+				viewbox:实物窗口，视野(SVG文件的编写者定义的我要以多大视野来观察所定义的世界)
+				preserveAspectRatio: 保留横纵比-->
+<!-- 注意：在SVG中，子标签的所有尺寸都是不带单位的 -->
+		<svg width="600px" height="300px" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" version="1.1">
+<!--1.矩形<rect>-->
+			<!--1.1 属性：				
+				width/height:定义矩形的宽度和高度
+				style属性用来定义css属性
+				x:定义矩形的左侧位置;				
+				y:定义矩形的顶端距离;
+				rx和 ry属性可使矩形产生圆角  eg: rx="20" ry="20" 
+				
+				1.2 css属性：
+				fill:定义矩形的填充颜色(rgba值、颜色名或者十六进制)
+				stroke:定义矩形边框的颜色
+				stroke-width:定义矩形边框的宽度
+				fill-opacity:定义填充颜色的透明度（合法的范围是：0 - 1）
+				stroke-opacity:属性定义笔触颜色的透明度（合法的范围是：0 - 1）
+				opacity:定义整个元素的不透明度
+				-->
+		     <rect x="10" y="10" width="30" height="60" style="fill:white;stroke:#9B7B56;stroke-width: 4px;"/>
+<!--1.1圆角矩形-->
+		     <rect x="60" y="10" rx="10" ry="10" width="60" height="40" stroke="#FF9090" fill="transparent" stroke-width="5"/> 
+
+<!--2.圆形<circle>-->
+		     <!--2.1 属性
+	     		cx和cy属性定义圆点的x和y坐标。如果省略cx和cy，圆的中心会被设置为(0, 0)
+	     		r属性定义圆的半径
+		     -->
+		     <circle cx="180" cy="50" r="40" stroke="green" fill="#C3413D" stroke-width="5"/> 
+		      
+<!--3.椭圆<ellipse>-->
+		     <!--3.1属性
+		     	CX属性定义的椭圆中心的x坐标
+		     	CY属性定义的椭圆中心的y坐标
+		     	RX属性定义的水平半径
+		     	RY属性定义的垂直半径
+		     -->
+		     <ellipse cx="320" cy="28" rx="80" ry="20" stroke="#FFC302" fill="transparent" stroke-width="5"/> 
+		     	
+<!--4.多边形<polygon>-->
+		     	<!--4.1属性
+		     		points属性定义多边形每个角的x和y坐标
+		     	-->
+		     <polygon points="50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180" 
+           stroke="#FFC302" fill="transparent" stroke-width="5"/>
+		      		      	
+<!--5.直线<line>-->
+		      	<!--5.1属性
+		      		x1 属性在 x 轴定义线条的开始
+		      		y1 属性在 y 轴定义线条的开始
+		      		x2 属性在 x 轴定义线条的结束
+		      		y2 属性在 y 轴定义线条的结束
+		      	-->
+		     <line fill="none" stroke="black" x1="410" y1="95" x2="440" y2="6"/>
+
+<!--6.曲线<polyline>-->
+		   	<polyline points="60 110 65 120 70 115 75 130 80 125 85 140 90 135 95 150 100 145" stroke="#9B7B56" fill="transparent" stroke-width="5"/>
+
+<!--7、路径path-->
+		<!--区分大小写
+			大写：参照的是绝对坐标，即SVG的左上角
+			小写：参照的是相对坐标，即前一个点的坐标-->
+
+		<!-- 最后的参数表示最终要到达的位置 -->
+		<!-- 上一个命令结束的位置就是下一个命令开始的位置 -->
+
+		<!--属性d(data)定义相关线条数据
+				M/m= moveto定义起始点
+				L/l=line to画线段
+				H/h=Horizontal画水平线
+				V/v=vertical画竖线
+				-->
+		<!-- 数值为负值时，fu号表示上一个参数的结束 -->
+		<path d="M20,230 Q40,205 50,230 T90,230" fill="none" stroke="#9B7B56" stroke-width="5"/>
+
+<!-- 8、文本 text-->
+		<text x="150" y="200" fill="blue">快看！我是SVG文本</text>
+
+		</svg>
+	</body>
+</html>
